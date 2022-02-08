@@ -1,0 +1,417 @@
+/*COMPLETED ON 8/15/21 AND 8/16/21
+*//*=================CSS RESET=================*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+/*	border-collapse: collapse;   REMOVE THIS PROPERTY
+*/	border-spacing: 0;
+}
+
+/*=================CONNECTING FONTS=================*/
+
+@font-face {
+	font-family: Roboto;
+	src: 
+	url('../fonts/Roboto-Regular.woff') format('woff'),   /* <<<<< DONT FORGET THIS COMMA*/
+	url('../fonts/Roboto-Regular.ttf') format('truetype');   /* ttf is used as a backup for older browsers to use*/
+}
+
+@font-face {
+	font-family: Roboto;
+	src: 
+	url('../fonts/Roboto-Light.woff') format('woff'),   /* <<<<< DONT FORGET THIS COMMA*/
+	url('../fonts/Roboto-Light.ttf') format('truetype');   /* ttf is used as a backup for older browsers to use*/
+	font-weight: 300;    /*use this line to specify it is LIGHT font... just a number no "px"*/
+}
+
+@font-face {
+	font-family: Proxima;  /*Proxima Nova LIGHT*/
+	src: 
+	url('../fonts/ProximaNova-Light.woff') format('woff'),   /* <<<<< DONT FORGET THIS COMMA*/
+	url('../fonts/ProximaNova-Light.ttf') format('truetype');   /* ttf is used as a backup for older browsers to use*/
+	font-weight: 300;    /*use this line to specify it is LIGHT font... just a number no "px"*/
+}
+
+@font-face {
+	font-family: Proxima; /*Proxima Nova REGULAR*/
+	src: 
+	url('../fonts/ProximaNova-Regular.woff') format('woff'),   /* <<<<< DONT FORGET THIS COMMA*/
+	url('../fonts/ProximaNova-Regular.ttf') format('truetype');   /* ttf is used as a backup for older browsers to use*/
+}
+
+@font-face {
+	font-family: Proxima; /*Proxima Nova BOLD*/
+	src: 
+	url('../fonts/ProximaNova-Bold.woff') format('woff'),   /* <<<<< DONT FORGET THIS COMMA*/
+	url('../fonts/ProximaNova-Bold.ttf') format('truetype');   /* ttf is used as a backup for older browsers to use*/
+	font-weight: bold;  /*indicates to computer this is a bold font for proxima font family!*/
+}
+
+body {
+	font-size: 16px;
+	font-family: Roboto;
+}
+
+/*================= HEADER =================*/
+.page-header, .page-footer {   
+/* apply these styles to both the page header and footer
+USE COMMA TO INDICATE PAGE FOOTER ISNT NESTED IN THE PAGE HEADER BUT ARE SEPARATE*/ 
+	height: 67px;
+	width: 100%;
+	background-color: #ffc910;
+}
+.wrapper {
+	height: 100%;
+	width: 1170px;
+	margin: 0 auto;   /*centers the content in the wrapper created for the header*/
+}
+.page-header .wrapper, .page-footer .wrapper {      /*applies styles to both header wrapper and footer wrapper using commas*/
+	display: flex; /* items within the header AND within the wrapper get flex display*/
+	 /*DISPLAYS ITEMS (right nav logo and left nav) as FLEX ITEMS! SO COOL.*/
+	 justify-content: space-around;
+	 align-items: center;
+
+}
+nav ul {     /*applying these properties to anywhere on the site*/
+	display: flex;
+	justify-content: space-between;
+}
+.page-header nav a {
+	font-family: Proxima;
+	color: #000;
+	text-transform: uppercase;
+	text-decoration: none;
+	padding: 0 35px;    /*this line is critical for making the justify content (line 98) work properly*/
+}
+/*=================MAIN=================*/
+main {
+	width: 77%; /*adds up to 100%*/
+}
+.main>.wrapper {    /*for the wrapper specifically inside main, display as flex. this allows both
+	the left (main tag) and right (aside tag) blocks to be displayed side by side!*/
+	display: flex;
+}
+.right-sidebar {
+	width: 23%; /*adds up to 100%*/
+}
+article {
+	display: flex;
+	margin-bottom: 50px;
+}
+h2 {
+	font-family: Proxima;
+	font-weight: bold;
+	font-size: 24px;
+	margin: 40px 0 15px;
+}
+img {
+	width: 100%;  /*all images should fit the total (100%) width of the article-left!*/
+}
+article h3 {
+	font-family: Proxima;
+	font-weight: 300; /*you have to specify weight here 300 = light*/
+	font-size: 30px;
+}
+.article-left {
+	width: 30%;
+}
+.article-left img {
+	border-radius: 3px;
+}
+.article-right {
+	width: 70%;
+	display: flex;
+	flex-direction: column;
+	padding-left: 25px;
+	justify-content: space-between;
+}
+.article-right .meta {
+	margin: 18px 0;
+}
+.article-right .additional {
+	margin-top: 18px;
+}
+.meta {
+	font-family: Roboto;
+	font-weight: 300;
+	font-size: 13px;
+	color: #999;
+}
+.meta span::after {
+	display: inline-block;
+	content: "|";
+	color: #999;
+	font-size: 13px;
+}
+.meta span:last-child::after {
+	display: none;
+}
+.category, .comments {
+	color: #e3b002;
+}
+.description {
+	font-size: 16px;
+	color: #555;
+	font-family: Proxima;
+	font-weight: 300;
+	line-height: 1.6;
+}
+.description::after {
+	content: ">";
+	color: #e3b002;
+}
+
+/*adding the eye icon by copying the unicode from the page....*/
+.views::before {
+	content: "\f06e"; /*DONT FORGET THE BACKSLASH*/
+	font-size: 16px;
+	font-family: 'Font Awesome 5 Free';
+	margin-right: 10px;
+}
+.views::after {
+	content: "|";
+	margin: 0 10px;
+}
+.comments::before {
+	content: "\f075"; /*DONT FORGET THE BACKSLASH*/
+	font-size: 16px;
+	font-family: 'Font Awesome 5 Free';
+	color: #999;
+	margin-right: 10px;
+}
+
+.additional {
+	color: #999;
+	font-family: Roboto;
+	font-weight: 300;
+	font-size: 13px;
+}
+
+.more {
+	width: 170px;
+	height: 42px;
+	background: transparent;
+	color: #000;
+	font-size: 12px;
+	font-family: Roboto;
+	text-transform: uppercase;
+	border: 1px solid #e3b002;  /*NO SPACE between 1 and px*/
+	border-radius: 5px;
+	outline: none;
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+}
+
+/*================= ASIDE =================*/
+
+/*You put the red "aside" tag BEFORE the class since it is on the same level
+	(line 96:  <aside class="right-sidebar"> ) unlike a different case 
+	where you have class THEN a tag INSIDE
+	(line 115:  <div class="socials">
+				<a href="...... etc)
+
+
+"Select all anchors inside of socials class"
+	.socials a {
+	display:  flex;
+	width: 45px;
+
+VERSUS: 
+
+"select the aside with the class "right-sidebar""
+aside.right-sidebar { 
+	padding-top: 78px;
+	padding-left: 65px;
+	... */ 
+
+aside.right-sidebar { 
+	padding-top: 78px;
+	padding-left: 65px;
+}
+
+.search-box {
+	width: 100%;
+	position: relative;
+}
+
+.search-box label{
+	position: absolute;
+	left: 10px;
+	top: 8px;
+	z-index: 100;  /*emmet causes unexpected character thing. ignore it*/
+}
+.search-box input{
+	width: 100%;
+	border-radius: 10px;
+	padding: 8px 10px 8px 30px;
+	outline: none;
+	border: 1px solid #e5e5e5;
+	font-size: 14px;
+	font-family: Roboto;
+	box-sizing: border-box; /*eliminates excess search bar hanging over the wrapper padding on right*/
+}
+/*================= ASIDE CALENDAR =================*/
+.calendar-widget {
+	border: 1px solid #e5e5e5;
+	width: 100%;
+	border-radius: 10px;
+	margin-top: 38px;
+
+}
+.calendar-widget .calendar-top{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	height: 38px;
+	width: 100%;
+	border-radius: 10px 10px 0 0;
+}
+.calendar-prev, .calendar-next {
+	color: #e5e5e5;
+}
+.calendar-widget table {
+	width: calc(100% + 4px);
+	margin-left: -2px;
+	border-radius: 0 0 10px 10px;
+}
+.calendar-widget table th {
+	height: 26px;
+	background: #e7e7e7;
+	color: #888;
+	text-align: center;
+	vertical-align: middle;  /*MIDDLE NOT CENTER*/
+}
+.calendar-widget table td {
+	height: 33px;
+	text-align: center;
+	vertical-align: middle;   /*MIDDLE NOT CENTER*/
+	border: 1px solid #e5e5e5;
+	color: #e5e5e5;
+}
+.calendar-widget .current-month {
+	color: #4d4d4d;
+}
+
+.calendar-widget .current-day {
+	color: #fff;
+	background-color: #f7c61d;
+}
+.calendar-widget tr:last-child td:first-child {
+	border-radius: 0 0 0 10px;
+}
+.calendar-widget tr:last-child td:last-child {
+	border-radius: 0 0 10px 0;
+}
+
+/*================= POPULAR NEWS =================*/
+.popular-news article {
+	flex-direction: column;
+	margin-bottom: 20px;
+}
+
+.popular-news h3 {
+	font-size: 16px;
+	font-family: Roboto;
+	line-height: 1.2;
+	margin-top: 10px;
+}
+.popular-news h2 {
+	font-size: 18px;
+	font-family: Proxima;
+	font-weight: bold;
+	display: flex;
+	white-space: nowrap;
+	align-items: center;
+}
+.popular-news h2::after {
+	content: '.';
+	font-size: 0px;
+	display: block;
+	width: 100%;
+	height: 1px;
+	border-top: 1px solid #e5e5e5;
+	margin-left: 15px;
+}
+
+/*================= FOOTER =================*/
+
+.copy {
+	font-family: Proxima;
+	font-weight: 300px;
+	font-size: 13px;
+	color: #a78613;
+}
+
+.socials {
+	display: flex;
+	justify-content: flex-end;  /*flexbox items in socials class should be right-aligned*/
+}
+
+.socials a {
+	display:  flex;
+	width: 45px;
+	height: 45px;
+	background-color: #fff;
+	border-radius: 50%;
+	color: #f7c61d;
+	font-size: 24px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	margin-left: 10px;   /*create padding between social media icons*/
+}
+
+.page-footer {
+		margin: 100px 0 0;  /*<<<NO COMMAS IN BETWEEN DIMENSIONS*/
+}
+
+.footer-nav a {
+	text-decoration: none;
+	color: #000;
+	padding: 0 18px;
+}
+
+.page-footer>.wrapper>* { /*"select all items within wrapper and make them 1/3 the width."*/
+	width: 33.33%; /*copy footer-nav and social are all of equal lengths. 
+	This line makes them all take up equal length*/
+}
